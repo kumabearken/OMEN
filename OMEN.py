@@ -2,7 +2,7 @@ import functions
 import time
 
 AUTO = True
-HARDSET = "kennykumagai@gmail.com"
+HARDSET = ""
 
 status = {}
 
