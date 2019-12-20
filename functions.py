@@ -10,6 +10,8 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 
+"""Put true if testing to fail the hardware check
+false if using for real"""
 TEST = True
 
 
@@ -49,10 +51,13 @@ def create_instance():
     print("CREATED INSTANCE")
     instance = inst[0]
     print("STARTING UP INSTANCE")
+
+    """wait til instance fully setup or else transfer will fail"""
     instance.wait_until_running()
+    waiter = ec2_info.get_waiter('instance_status_ok')
+    waiter.wait()
     print("FINISHED LOADING")
     instance.load()
-    time.sleep(20)
     return instance.public_dns_name, key_name + ".pem"
 
 
@@ -80,7 +85,7 @@ def get_status():
 
 def notify(email, dns, key_name):
     print("SENDING EMAIL")
-    fromaddr = "cpsc454omen@gmail.com"
+    fromaddr = "insert gmail for server"
     toaddr = email
 
     # instance of MIMEMultipart
@@ -128,7 +133,7 @@ def notify(email, dns, key_name):
     s.starttls()
 
     # Authentication
-    s.login(fromaddr, "CPSC454OMEN")
+    s.login(fromaddr, "insert password for server gmail")
 
     # Converts the Multipart msg into a string
     text = msg.as_string()
@@ -181,7 +186,7 @@ def transfer(key_name, dns):
 
     """get paths for files"""
     key_name = './' + key_name
-    file2trans = './OMEN.py ' + './functions.py'
+    file2trans = "insert filename and path"
 
     """add host to known hosts to bypass prompt"""
     print("WAITING TO INITIALIZE")
