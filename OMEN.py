@@ -1,11 +1,13 @@
 import functions
 import time
 
+"""set true if want to hardcode admin email"""
 AUTO = True
-HARDSET = ""
+HARDSET = "insert email"
 
 status = {}
 
+"""Hardcoded admin email"""
 if AUTO:
     admin = HARDSET
 else:
