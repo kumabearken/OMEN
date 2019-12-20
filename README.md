@@ -2,7 +2,7 @@
 
 A hardware monitor system that backs up files to a AWS instance for linux systems then emails user of hardware failure and provides key and dns to the aws instance with the files, then shuts off the system.
 
-Steps to use
+Steps to use'\n'
 1)Need AWS account
 2)Need Gmail and main email
 3)Need AWS CLI
