@@ -70,7 +70,7 @@ def debug():
 
     dns, key_name = create_instance()
     transfer(key_name=key_name, dns=dns)
-    notify('kennykumagai@gmail.com', dns=dns, key_name=key_name)
+    notify('insert email', dns=dns, key_name=key_name)
     # ec2_info.start_instances(InstanceIds=[brain])
     # ec2_info.stop_instances(InstanceIds=[brain])
     print("Stopping")
